@@ -1,0 +1,40 @@
+<section>
+  <div class="d-flex justify-content-between">
+    <h4>Liste des Commandes pas encore valider</h4>
+  </div>
+
+  <hr>
+
+  <table border="0" class="table table-border-danger table-striped">
+    <thead>
+      <tr>
+        <th class="text-center" width="220px">Client</th>
+        <th class="text-center" width="220px">Repas</th>
+        <th class="text-center" width="220px">Quantité</th>
+        <th class="text-center" width="220px">Emballage</th>
+        <th class="text-center" width="220px">Serviette</th>
+        <th class="text-center" width="220px">Couvert</th>
+        <th class="text-center" width="220px">etat</th>
+      </tr>
+    </thead>
+    <tbody >
+
+
+
+      <tr *ngFor="let j of COM">
+        <td class="text-center">{{ j.ID_CLIENTS}}</td>
+        <td class="text-center" >{{ j.NOM_REPAS }}</td>
+        <td class="text-center">{{ j.QTE }}</td>
+        <td class="text-center" *ngIf="j.EMBALLAGE == 0">Non</td>
+        <td class="text-center" *ngIf="j.EMBALLAGE == 1">Oui</td>
+        <td class="text-center" *ngIf="j.SERVIETTE == 0">Non</td>
+        <td class="text-center" *ngIf="j.SERVIETTE == 1">Oui</td>
+        <td class="text-center" *ngIf="j.COUVERT == 0">Non</td>
+        <td class="text-center" *ngIf="j.COUVERT == 1">Oui</td>
+        <td class="text-center">Pas encore valider</td>
+        <td class="text-center"><button class="btn btn-primary">Valider</button></td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>

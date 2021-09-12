@@ -1,0 +1,67 @@
+<div class="d-flex justify-content-between">
+  <h4>Ajout Ingrdient d'un repas</h4>
+</div>
+
+<form [formGroup]="form_create_Ing" (ngSubmit)="createIng()">
+
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Le repas:</label>
+      <select class="form-control" formControlName="id_repas" id="id_repas">
+        <option [defaultSelected] [selected] disabled>Selectionner le repas</option>
+        <option *ngFor="let i of R" value="{{ i.ID}}">{{ i.NOM_REPAS }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Nom de l'ingredient:</label>
+      <input formControlName="nom_ingredient" id="nom_ingredient" type="text" class="form-control">
+      <div *ngIf="formulaireIng.nom_ingredient.touched && formulaireIng.nom_ingredient.invalid"
+        class="alert alert-danger">
+        <div *ngIf="formulaireIng.nom_ingredient.errors?.required">*Champ obligatoire</div>
+        <div *ngIf="formulaireIng.nom_ingredient.errors?.pattern">*Doit contenir que des lettres</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Prix de cet ingredient:</label>
+      <input formControlName="prix_ing" id="prix_ing" type="number" class="form-control">
+      <div *ngIf="formulaireIng.prix_ing.touched && formulaireIng.prix_ing.invalid" class="alert alert-danger">
+        <div *ngIf="formulaireIng.prix_ing.errors?.required">*Champ obligatoire</div>
+        <div *ngIf="formulaireIng.prix_ing.errors?.pattern">*Doit contenir que des chiffres > 1</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Quantité necessaire pour cet ingredient:</label>
+      <input formControlName="qte_ilaina_ing" id="qte_ilaina_ing" type="number" class="form-control">
+      <div *ngIf="formulaireIng.qte_ilaina_ing.touched && formulaireIng.qte_ilaina_ing.invalid"
+        class="alert alert-danger">
+        <div *ngIf="formulaireIng.qte_ilaina_ing.errors?.required">*Champ obligatoire</div>
+        <div *ngIf="formulaireIng.qte_ilaina_ing.errors?.pattern">*Doit contenir que des chiffres > 1</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Stockage disponible de cet ingredient:</label>
+      <input formControlName="stock" id="stock" type="number" class="form-control">
+      <div *ngIf="formulaireIng.stock.touched && formulaireIng.stock.invalid" class="alert alert-danger">
+        <div *ngIf="formulaireIng.stock.errors?.required">*Champ obligatoire</div>
+        <div *ngIf="formulaireIng.stock.errors?.pattern">*Doit contenir que des chiffres > 1</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <button class="btn btn-primary" type="submit" [disabled]="!form_create_Ing.valid">Ajouter</button>
+</form>

@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <h4>Passer votre commande</h4>
+</div>
+
+<form [formGroup]="form_create_commande" (ngSubmit)="submitCom()">
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Menu choisi:</label>
+      <input formControlName="nom_repas" id="nom_repas" style="width: 25% !important;" type="text" class="form-control" [(ngModel)]="R.NOM_REPAS" readonly>
+
+       <input type="hidden" formControlName="id_repas" id="id_repas" [(ngModel)]="R.ID" >
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Quantité:</label>
+      <input formControlName="qte" id="qte" type="number" class="form-control">
+      <div *ngIf="formulaireCom.qte.touched && formulaireCom.qte.invalid" class="alert alert-danger">
+        <div *ngIf="formulaireCom.qte.errors?.required">*Champ obligatoire</div>
+        <div *ngIf="formulaireCom.qte.errors?.pattern">*Doit contenir que des chiffres > 1</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-2" *ngFor="let c of plus">
+     <span style="padding-right: 10px;"><input type="checkbox" formControlName="{{ c.name }}" id="{{ c.name }}" [(ngModel)]="c.valeur" (ngModelChange)="onChange()"></span>
+      <label for="title"> {{ c.name }}</label>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6 ">
+      <label for="title">Montant Total : </label>
+
+      <span style="width: 20% !important;"> {{ R.PRIX }}</span><span *ngIf="plus[0].valeur"> +{{ plus[0].prix }}</span><span *ngIf="plus[1].valeur"> +{{ plus[1].prix }}</span><span *ngIf="plus[2].valeur"> +{{  plus[2].prix  }}</span> <span> Ar</span>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" [disabled]="!form_create_commande.valid">commander</button>
+
+</form>
+
+
+
+

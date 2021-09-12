@@ -1,0 +1,33 @@
+<section>
+  <div class="d-flex justify-content-between">
+    <h4>Liste des Ingredient</h4>
+    <a routerLink="/ingredient/create" class="btn btn-primary">Ajouter un nouveau Ingredient</a>
+  </div>
+
+  <hr>
+
+  <table border="0" class="table table-border-danger table-striped">
+    <thead>
+      <tr>
+        <th class="text-center" width="220px">Repas</th>
+        <th class="text-center" width="220px">Ingredient</th>
+        <th class="text-center" width="220px">Prix</th>
+        <th class="text-center" width="220px">Quantiter necessaire</th>
+        <th class="text-center" width="220px">Stockage disponible</th>
+      </tr>
+    </thead>
+    <tbody >
+
+
+      
+      <tr *ngFor="let j of I">
+        <td class="text-center">{{ j.NOM_REPAS}}</td> 
+        <td class="text-center" >{{ j.NOM_INGREDIENTS }}</td>
+        <td class="text-center">{{ j.PRIX_INGREDIENTS }} Ar</td>
+        <td class="text-center">{{ j.QTE_ILAINA_INGREDIENTS }}</td>
+        <td class="text-center">{{ j.STOCK }}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</section>

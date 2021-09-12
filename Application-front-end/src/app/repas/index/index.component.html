@@ -1,0 +1,29 @@
+<section>
+  <div class="d-flex justify-content-between">
+    <h4>Liste des repas</h4>
+    <a routerLink="/repas/create" class="btn btn-primary">Ajouter un nouveau repas</a>
+  </div>
+
+<hr>
+
+  <table border="0" class="table table-border-danger table-striped">
+    <thead>
+      <tr>
+        <th class="text-center" width="220px">Nom</th>
+        <th class="text-center" width="220px">Prix</th>
+        <!-- <th class="text-center" width="">Action</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of R">
+        <td class="text-center">{{ i.NOM_REPAS }}</td>
+        <td class="text-center">{{ i.PRIX }} Ar</td>
+        <!-- <td class="text-center">
+          <a href="#" [routerLink]="['/repas/', 'update', i.ID  ]" class="btn btn-success">Modifier</a>
+          <button type="button" (click)="deleteRepas(repas.id_repas)" class="btn btn-danger">Supprimer</button> 
+        </td> -->
+      </tr>
+
+    </tbody>
+  </table>
+</section>

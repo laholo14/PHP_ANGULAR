@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">
+  <h4>Menu</h4>
+</div>
+<table border="0" class="table table-border-danger table-striped">
+  <thead>
+    <tr>
+      <th class="text-center" width="220px">Nom</th>
+      <th class="text-center" width="220px">Prix</th>
+      <!-- <th class="text-center" width="">Action</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of R">
+      <td class="text-center">{{ i.NOM_REPAS }}</td>
+      <td class="text-center">{{ i.PRIX }} Ar</td>
+      <td class="text-center">
+        <a href="#" [routerLink]="['commande/', 'create', i.ID  ]" class="btn btn-success">Commander</a>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
