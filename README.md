@@ -25,6 +25,8 @@ J'ai utilisé 4 modules
 
 - Liste Commande page pour lister les commandes pas encore validées pour l'admin
 
+Normalement, l'entrer des admins devrait être via URL mais pour faciliter la navigation, j'ai mis des liens de navigation.
+
 
 ## Back End
 J'ai utilisé <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
